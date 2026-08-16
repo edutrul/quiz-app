@@ -6,6 +6,14 @@ This project's short code is **QP** (Quiz-App). Use it as a prefix wherever a sh
 - **PR titles**: start with `[QP] <description>`.
 - **Code identifiers**, where it naturally fits: env vars (`QP_...`), constant/config namespacing, log tags, etc. Don't force it where it doesn't fit.
 
+## Branch naming
+
+Every branch (one per PR) is named `QP-<N>` — just the project code and an auto-incrementing number. No `feature/`, no descriptive slug, nothing else appended.
+
+To pick `<N>` when creating a new branch:
+1. Check existing branches, local and remote (`git branch -a` / `gh api repos/edutrul/quiz-app/branches`), for the highest existing `QP-<N>`.
+2. Use the next integer up. The first branch created under this convention is `QP-1`.
+
 # Chat History Logging (mandatory, silent)
 
 This project requires every conversation turn to be logged to `.chat-history/log.md`. Follow this exactly, every session, without exception.
