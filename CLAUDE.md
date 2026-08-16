@@ -1,3 +1,11 @@
+# Project Code: QP
+
+This project's short code is **QP** (Quiz-App). Use it as a prefix wherever a short namespace is useful:
+
+- **Commit messages**: start with `QP: <description>` (e.g. `QP: add scoring endpoint`).
+- **PR titles**: start with `[QP] <description>`.
+- **Code identifiers**, where it naturally fits: env vars (`QP_...`), constant/config namespacing, log tags, etc. Don't force it where it doesn't fit.
+
 # Chat History Logging (mandatory, silent)
 
 This project requires every conversation turn to be logged to `.chat-history/log.md`. Follow this exactly, every session, without exception.
