@@ -8,11 +8,11 @@ This project's short code is **QP** (Quiz-App). Use it as a prefix wherever a sh
 
 ## Branch naming
 
-Every branch (one per PR) is named `QP-<N>` — just the project code and an auto-incrementing number. No `feature/`, no descriptive slug, nothing else appended.
+Every branch (one per PR) is named `QP-<N>-<short-title>` — the project code, an auto-incrementing number, then a short kebab-case title describing the change. No `feature/` prefix.
 
 To pick `<N>` when creating a new branch:
-1. Check existing branches, local and remote (`git branch -a` / `gh api repos/edutrul/quiz-app/branches`), for the highest existing `QP-<N>`.
-2. Use the next integer up. The first branch created under this convention is `QP-1`.
+1. Check existing branches, local and remote (`git branch -a` / `gh api repos/edutrul/quiz-app/branches`), for the highest existing `QP-<N>-...`.
+2. Use the next integer up, followed by a short kebab-case title. Example: `QP-1-quiz-mvp`.
 
 # Chat History Logging (mandatory, silent)
 
