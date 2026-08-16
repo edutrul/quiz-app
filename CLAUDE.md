@@ -6,6 +6,17 @@ This project's short code is **QP** (Quiz-App). Use it as a prefix wherever a sh
 - **PR titles**: start with `[QP] <description>`.
 - **Code identifiers**, where it naturally fits: env vars (`QP_...`), constant/config namespacing, log tags, etc. Don't force it where it doesn't fit.
 
+## Codebase
+
+npm-workspaces monorepo, two packages, no ORM/migration framework:
+
+- `server/` — Node.js + Express, SQLite via `better-sqlite3` with raw SQL (`schema.sql`), no repository-pattern abstraction. `src/app.js` builds and exports the Express app (testable); `src/index.js` is the thin listener. Routes live in `src/routes/`; `src/routes/attempts.js` carries the core invariants (idempotent submission via a `UNIQUE(attempt_id, question_id)` constraint, correctness never selected before completion).
+- `client/` — React + TypeScript (Vite), TanStack Query for server state, `localStorage`-held attempt id for refresh-survivable resume, a `RequestState` discriminated union for explicit loading/error/empty/success UI on every screen.
+
+Dev: `npm install && npm run seed && npm run dev` (server on :3001, client on :5173).
+
+**Testing**: `npm test -w server` runs `server/test/*.test.js` via Node's built-in `node:test` + `supertest`, against an in-memory SQLite db (`DB_PATH=:memory:`, set in the `test` script). No test framework dependency beyond `supertest`. Client has no test suite yet — `npm run build -w client` (`tsc -b && vite build`) is the correctness check there. CI (`.github/workflows/ci.yml`) runs both on every push to `main` and every PR.
+
 ## Branch naming
 
 Every branch (one per PR) is named `QP-<N>-<short-title>` — the project code, an auto-incrementing number, then a short kebab-case title describing the change. No `feature/` prefix.
