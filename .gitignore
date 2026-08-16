@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+dist/
+build/
+out/
+.next/
+.nuxt/
+.vercel/
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Editor/OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Testing / coverage
+coverage/
+
+# Local conversation log (not meant for the public repo)
+.chat-history/
