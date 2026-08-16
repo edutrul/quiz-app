@@ -32,5 +32,11 @@ pnpm-debug.log*
 # Testing / coverage
 coverage/
 
+# SQLite runtime data
+server/data/*.db
+server/data/*.db-journal
+server/data/*.db-wal
+server/data/*.db-shm
+
 # Local conversation log (not meant for the public repo)
 .chat-history/
